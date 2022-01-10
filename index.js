@@ -76,7 +76,7 @@ app.get('/callback', (req, res) => {
                     refresh_token
                 })
                 //redirect to react app
-                res.redirect(`http://localhost:3000/?${queryParams}`)
+                res.redirect(`http://localhost:3006/?${queryParams}`)
 
                 //pass along tokens in query params
 
