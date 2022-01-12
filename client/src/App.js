@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
 
 function App() {
   useEffect( () => {
@@ -12,6 +13,17 @@ function App() {
 
     console.log("I am access token ", access_token)
     console.log("I am refresh token", refresh_token)
+
+    if (refresh_token){
+      axios({
+        method: 'get',
+        url: `/refresh_token?refresh_token=${refresh_token}`
+      })
+          .then((response) => console.log(response.data))
+          .catch(error => console.log(error))
+
+  }
+
   }, [])
 
   return (
